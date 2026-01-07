@@ -1,0 +1,18 @@
+[Unit]
+Description=Nitro Swim Class Scraper
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/nitro_swim_scraper
+ExecStart=/home/ubuntu/nitro_swim_scraper/venv/bin/python3 /home/ubuntu/nitro_swim_scraper/scheduler.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+StandardOutput=append:/var/log/nitro_swim/nitro_swim_scraper.log
+StandardError=append:/var/log/nitro_swim/nitro_swim_scraper.log
+
+[Install]
+WantedBy=multi-user.target
